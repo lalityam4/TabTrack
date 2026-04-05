@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TabTrack Splash — Option 3</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #F0F0F5;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1A1A2E;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #6B7280;
+      font-size: 14px;
+      margin-bottom: 36px;
+    }
+
+    .grid {
+      display: flex;
+      justify-content: center;
+    }
+
+    .phone-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .label {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1A1A2E;
+    }
+    .label span {
+      font-size: 12px;
+      font-weight: 500;
+      color: #6B7280;
+      display: block;
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    .replay-btn {
+      background: #5B4CF5;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .replay-btn:hover { background: #4A3DE0; }
+
+    /* ── Phone shell ── */
+    .phone {
+      width: 200px;
+      height: 420px;
+      border-radius: 36px;
+      border: 6px solid #1A1A2E;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      background: white;
+    }
+
+    /* ─────────────────────────────────────
+       OPTION 1 — Logo Pulse
+    ───────────────────────────────────── */
+    #opt1 { background: #0D0D1A; }
+
+    .pulse-logo {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      opacity: 0;
+      animation: pulse-in 0.6s ease forwards 0.2s,
+                 pulse-out 0.5s ease forwards 2s;
+    }
+
+    .pulse-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #5B4CF5, #8B6FFF);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      transform: scale(0.7);
+      animation: pulse-scale 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards 0.2s;
+    }
+
+    .pulse-text {
+      font-size: 26px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .pulse-tagline {
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    @keyframes pulse-in {
+      to { opacity: 1; }
+    }
+    @keyframes pulse-scale {
+      to { transform: scale(1); }
+    }
+    @keyframes pulse-out {
+      to { opacity: 0; }
+    }
+
+    /* ─────────────────────────────────────
+       OPTION 2 — Letter Drop
+    ───────────────────────────────────── */
+    #opt2 { background: white; }
+
+    .letter-wrap {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .letters {
+      display: flex;
+      gap: 1px;
+    }
+
+    .letter {
+      font-size: 30px;
+      font-weight: 900;
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(-40px);
+      color: #5B4CF5;
+    }
+    .letter.dark { color: #1A1A2E; }
+
+    .letter-sub {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #6B7280;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: letter-fade 0.4s ease forwards 1.4s;
+    }
+
+    @keyframes letter-drop {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes letter-fade {
+      to { opacity: 1; }
+    }
+
+    /* Each letter animated individually */
+    .letter:nth-child(1) { animation: letter-drop 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards 0.1s; }
+    .letter:nth-child(2) { animation: letter-drop 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards 0.2s; }
+    .letter:nth-child(3) { animation: letter-drop 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards 0.3s; }
+    .letter:nth-child(4) { animation: letter-drop 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards 0.45s; }
+    .letter:nth-child(5) { animation: letter-drop 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards 0.55s; }
+    .letter:nth-child(6) { animation: letter-drop 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards 0.65s; }
+    .letter:nth-child(7) { animation: letter-drop 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards 0.75s; }
+    .letter:nth-child(8) { animation: letter-drop 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards 0.85s; }
+
+    /* ─────────────────────────────────────
+       OPTION 3 — Card Swipe
+    ───────────────────────────────────── */
+    #opt3 { background: #0D0D1A; }
+
+    .card-scene {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .credit-card {
+      width: 140px;
+      height: 88px;
+      background: linear-gradient(135deg, #5B4CF5 0%, #8B6FFF 50%, #C084FC 100%);
+      border-radius: 14px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 12px 40px rgba(91,76,245,0.5);
+      transform: translateX(-220px) rotate(-8deg);
+      animation: card-slide 0.7s cubic-bezier(0.34,1.2,0.64,1) forwards 0.2s;
+    }
+
+    .card-chip {
+      width: 24px;
+      height: 18px;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      border-radius: 4px;
+    }
+
+    .card-num {
+      font-size: 9px;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 2px;
+    }
+
+    .card-brand {
+      font-size: 11px;
+      font-weight: 700;
+      color: white;
+      text-align: right;
+    }
+
+    .swipe-glow {
+      position: absolute;
+      width: 2px;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, rgba(91,76,245,0.8), transparent);
+      left: 50%;
+      top: 30%;
+      opacity: 0;
+      animation: swipe-glow 0.3s ease forwards 0.8s;
+    }
+
+    .card-wordmark {
+      opacity: 0;
+      animation: fade-up 0.5s ease forwards 1s;
+      text-align: center;
+    }
+    .card-wordmark .cw-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+    .card-wordmark .cw-sub {
+      font-size: 10px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Buttons that appear after animation */
+    .splash-buttons {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 16px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: buttons-rise 0.6s cubic-bezier(0.34,1.2,0.64,1) forwards 1.8s;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #5B4CF5;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: -0.2px;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.85);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    @keyframes card-slide {
+      to { transform: translateX(0) rotate(0deg); }
+    }
+    @keyframes swipe-glow {
+      0% { opacity: 0; transform: scaleY(0); }
+      50% { opacity: 1; transform: scaleY(1); }
+      100% { opacity: 0; }
+    }
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes buttons-rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─────────────────────────────────────
+       OPTION 4 — Gradient Burst
+    ───────────────────────────────────── */
+    #opt4 { background: white; overflow: hidden; }
+
+    .burst-dot {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #5B4CF5;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      animation: burst-expand 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.1s;
+    }
+
+    .burst-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      opacity: 0;
+      animation: burst-text 0.5s ease forwards 0.7s;
+    }
+
+    .burst-icon {
+      font-size: 36px;
+      filter: brightness(0) invert(1);
+    }
+
+    .burst-title {
+      font-size: 30px;
+      font-weight: 900;
+      color: white;
+      letter-spacing: -1px;
+    }
+
+    .burst-sub {
+      font-size: 10px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    @keyframes burst-expand {
+      to { transform: translate(-50%, -50%) scale(30); border-radius: 0; }
+    }
+    @keyframes burst-text {
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>TabTrack — Splash Screen</h1>
+  <p class="subtitle">Option 3 · Card Swipe · with Get Started & Login</p>
+
+  <div class="grid">
+
+    <!-- OPTION 3 — Card Swipe with buttons -->
+    <div class="phone-wrap">
+      <div class="phone" id="opt3">
+        <div class="card-scene">
+          <div class="credit-card" id="credit-card">
+            <div class="card-chip"></div>
+            <div class="card-num">•••• •••• •••• 4242</div>
+            <div class="card-brand">VISA</div>
+          </div>
+          <div class="swipe-glow"></div>
+          <div class="card-wordmark">
+            <div class="cw-title">TabTrack</div>
+            <div class="cw-sub">Swipe. Split. Done.</div>
+          </div>
+        </div>
+
+        <!-- Buttons appear after animation -->
+        <div class="splash-buttons">
+          <button class="btn-primary">Get Started →</button>
+          <button class="btn-secondary">I already have an account</button>
+        </div>
+      </div>
+      <button class="replay-btn" onclick="replay('opt3')">↺ Replay animation</button>
+    </div>
+
+  </div>
+
+  <script>
+    function replay(id) {
+      const el = document.getElementById(id);
+      const clone = el.cloneNode(true);
+      el.parentNode.replaceChild(clone, el);
+    }
+  </script>
+</body>
+</html>

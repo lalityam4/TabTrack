@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "TabTrack",
+    "slug": "tabtrack",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#5B4CF5"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.lali.tabtrack",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "TabTrack uses your location to detect when you've left home and might be on a trip.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "TabTrack uses your location in the background to detect trip start automatically.",
+        "NSContactsUsageDescription": "TabTrack uses your contacts so you can quickly add friends to a trip."
+      },
+      "plugins": ["expo-contacts"]
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#5B4CF5"
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "tabtrack-v1"
+      }
+    }
+  }
+}
